@@ -75,7 +75,7 @@ class MeganzClient(Client):
             bot_token=os.getenv("BOT_TOKEN"),
             api_id=os.getenv("APP_ID"),
             api_hash=os.getenv("API_HASH"),
-            plugins=dict(root="megadl/modules"),
+            plugins=dict(root="megadl.modules"),
             sleep_threshold=10,
         )
 

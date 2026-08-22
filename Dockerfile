@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM python:3.12-alpine
 
 RUN apk update && apk upgrade
 RUN apk add --no-cache gcc python3-dev musl-dev linux-headers git py3-pip ffmpeg

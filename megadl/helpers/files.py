@@ -61,13 +61,22 @@ async def send_as_guessed(client, file, chat_id, mid, **kwargs):
             )
         # Images
         elif isit(r"\bimage\b", fmime):
-            await client.send_photo(
-                chat_id,
-                file,
-                progress=track_progress,
-                progress_args=(client, chat_id, mid, strtim),
-                **kwargs,
-            )
+            try:
+                await client.send_photo(
+                    chat_id,
+                    file,
+                    progress=track_progress,
+                    progress_args=(client, chat_id, mid, strtim),
+                    **kwargs,
+                )
+            except Exception:
+                await client.send_document(
+                    chat_id,
+                    file,
+                    progress=track_progress,
+                    progress_args=(client, chat_id, mid, strtim),
+                    **kwargs,
+                )
         # Audio
         elif isit(r"\baudio\b", fmime):
             await client.send_audio(
